@@ -66,7 +66,7 @@ RCT_EXPORT_METHOD(setVelocity:(nonnull NSNumber *)reactTag
 RCT_EXPORT_METHOD(bringToFront:(nonnull NSNumber *)reactTag
                   params:(NSDictionary*)params)
 {
-    
+
 }
 
 RCT_EXPORT_METHOD(snapTo:(nonnull NSNumber *)reactTag
@@ -83,6 +83,25 @@ RCT_EXPORT_METHOD(snapTo:(nonnull NSNumber *)reactTag
          else
          {
              RCTLogError(@"tried to snapTo: on non-InteractableView view %@ "
+                         "with tag #%@", view, reactTag);
+         }
+     }];
+}
+
+RCT_EXPORT_METHOD(snapToPoint:(nonnull NSNumber *)reactTag
+                  snapPoint:(InteractablePoint*)snapPoint)
+{
+    [self.bridge.uiManager addUIBlock:
+     ^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry)
+     {
+         UIView *view = viewRegistry[reactTag];
+         if ([view isKindOfClass:[InteractableView class]])
+         {
+             [(InteractableView*)view snapToPoint:snapPoint];
+         }
+         else
+         {
+             RCTLogError(@"tried to snapToPoint: on non-InteractableView view %@ "
                          "with tag #%@", view, reactTag);
          }
      }];

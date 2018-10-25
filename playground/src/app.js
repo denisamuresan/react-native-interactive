@@ -23,6 +23,7 @@ import HandleRelayout from './examples/HandleRelayout';
 import SideMenu from './examples/SideMenu';
 import SnapTo from './examples/SnapTo';
 import SnapToLine from './examples/SnapToLine';
+import SnapToPoint from './examples/SnapToPoint';
 import ChangePosition from './examples/ChangePosition';
 import AlertAreas from './examples/AlertAreas';
 import CollapsingHeaderWithScroll from './examples/CollapsingHeaderWithScroll';
@@ -112,6 +113,9 @@ export default class example extends Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, SnapToLine)}>
           <Text style={styles.button}>Snap To Line</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.onExamplePress.bind(this, SnapToPoint)}>
+          <Text style={styles.button}>Snap To Point (imperative cmd)</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, ChangePosition)}>
           <Text style={styles.button}>Change Position (imperative cmd)</Text>

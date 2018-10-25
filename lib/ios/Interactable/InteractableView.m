@@ -418,7 +418,6 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
     InteractablePoint *snapPoint = [InteractablePoint findClosestPoint:self.snapPoints toPoint:projectedCenter withOrigin:self.origin];
     if (snapPoint)
     {
-        [self addTempSnapToPointBehavior:snapPoint];
         if (self.onSnapStart)
         {
             self.onSnapStart(@
@@ -427,6 +426,17 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
                             @"id": snapPoint.id
                         });
         }
+        
+        // Create a copy of the snapPoint to make mutations.
+        InteractablePoint *point = snapPoint.copy;
+        
+        // When a snap point coordinate is not defined, use the coordinate at the end of the toss instead.
+        // This allows you to specify only one coordinate in a snapPoint to create a 'snapLine.'
+        if (point.x == CGFLOAT_MAX) point.x = projectedCenter.x - self.origin.x;
+        if (point.y == CGFLOAT_MAX) point.y = projectedCenter.y - self.origin.y;
+        
+        [self addTempSnapToPointBehavior:point];
+        
     }
 
     [self addTempBounceBehaviorWithBoundaries:self.boundaries];

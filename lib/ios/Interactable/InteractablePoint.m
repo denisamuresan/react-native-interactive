@@ -12,7 +12,19 @@
 
 - (id)copyWithZone:(__unused NSZone *)zone
 {
-    return self;
+    InteractablePoint *another = [[InteractablePoint alloc] init];
+    
+    another.x = self.x;
+    another.y = self.y;
+    another.damping = self.damping;
+    another.tension = self.tension;
+    another.strength = self.strength;
+    another.falloff = self.falloff;
+    another.id = self.id;
+    another.influenceArea = self.influenceArea;
+    another.haptics = self.haptics;
+    
+    return another;
 }
 
 - (CGPoint)positionWithOrigin:(CGPoint)origin

@@ -606,6 +606,24 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
     }
 }
 
+- (void)snapToPoint:(InteractablePoint*)snapPoint
+{
+    [self.animator removeTempBehaviors];
+    self.dragBehavior = nil;
+    
+    [self addTempSnapToPointBehavior:snapPoint];
+    if (self.onSnapStart) {
+        self.onSnapStart(@
+                         {
+                             @"index": @([self.snapPoints indexOfObject:snapPoint]),
+                             @"id": snapPoint.id
+                         });
+    }
+    
+    [self addTempBounceBehaviorWithBoundaries:self.boundaries];
+    [self.animator ensureRunning];
+}
+
 - (void)changePosition:(NSDictionary*)params
 {
     if (self.dragBehavior) return;

@@ -40,6 +40,7 @@
 - (instancetype)initWithBridge:(RCTBridge*)bridge;
 - (void)setVelocity:(NSDictionary*)params;
 - (void)snapTo:(NSDictionary*)params;
+- (void)snapToPoint:(InteractablePoint*)snapPoint;
 - (void)changePosition:(NSDictionary*)params;
 - (void)bringToFront:(NSDictionary*)params;
 

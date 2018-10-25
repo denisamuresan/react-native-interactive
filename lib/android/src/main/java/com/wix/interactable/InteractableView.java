@@ -545,6 +545,13 @@ public class InteractableView extends ViewGroup implements PhysicsAnimator.Physi
         }
     }
 
+    public void snapToPoint(InteractablePoint snapPoint) {
+        this.animator.removeTempBehaviors();
+        this.dragBehavior = null;
+        addTempSnapToPointBehavior(snapPoint);
+        addTempBounceBehaviorWithBoundaries(this.boundaries);
+    }
+
     public void changePosition(PointF position) {
         if(dragBehavior != null) return;
         setTranslationX(position.x);

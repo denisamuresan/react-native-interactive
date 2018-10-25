@@ -71,5 +71,16 @@ public class InteractablePoint {
 
     }
 
+    public static InteractablePoint copy(InteractablePoint original) {
+
+        InteractablePoint another = new InteractablePoint(original.id, original.x, original.y,
+                                                            original.damping, original.tension,
+                                                            original.strength, original.falloff,
+                                                            original.influenceArea);
+
+        return another;
+
+    }
+
 
 }

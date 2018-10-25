@@ -312,7 +312,15 @@ public class InteractableView extends ViewGroup implements PhysicsAnimator.Physi
         InteractablePoint snapPoint = InteractablePoint.findClosestPoint(snapPoints,projectedCenter);
         listener.onDrag("end",currentPosition.x, currentPosition.y, snapPoint.id);
 
-        addTempSnapToPointBehavior(snapPoint);
+        // Create a copy of the snapPoint to make mutations.
+        InteractablePoint point = InteractablePoint.copy(snapPoint);
+
+        // When a snap point coordinate is not defined, use the coordinate at the end of the toss instead.
+        // This allows you to specify only one coordinate in a snapPoint to create a 'snapLine.'
+        if (point.x == Float.MAX_VALUE) point.x = projectedCenter.x;
+        if (point.y == Float.MAX_VALUE) point.y = projectedCenter.y;
+
+        addTempSnapToPointBehavior(point);
         addTempBounceBehaviorWithBoundaries(this.boundaries);
     }
 

@@ -3,44 +3,24 @@
 <img src="http://i.imgur.com/J5l2Qvq.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="http://i.imgur.com/dWFYZBG.gif" width=200 />
 
-# Interactable
+# <Interactable.View />
 
-Previously `wix/react-native-interactable`
-
-Consider [kmagiera/react-native-gesture-handler](https://github.com/kmagiera/react-native-gesture-handler)
-
-### Description
-
+* [Goal](#goal)
+* [Alternatives](#alternatives)
 * [Installation](#installation)
 * [Example](#example)
 * [Usage](#usage)
-* [Implementation Details](#implementation-details)
 
-<br>
-This is an experimental implementation of a declarative API for handling fluid user interactions with views at 60 FPS in React Native. Here are some example use-cases for views that users can interact with:
+### Goal
 
-* **Swipeable card** (a la Google Now) springing into place unless swiped away with enough force
-* **Drawer** snapping between closed and open with buttons appearing gradually as it's being dragged
-* **Collapsible header** that snaps to a smaller size as the content below is being scrolled
-* **Chat heads** (a la Facebook Messenger) that can be dragged around but snap to corners of the screen
+The goal of this repository is to provide `react-native` developers with a single interface to replace many use cases of `PanResponder`. `PanResponder` is implemented in JavaScript so there is noticable lag. This repository is implemented natively so it can easily accomplish 60 FPS. This repository was forked from [wix/react-native-interactable](https://github.com/wix/react-native-interactable).
 
-All of these use-cases have views that continuously interact with the user's gestures. These interactions are normally physical in nature, having properties like springiness, friction, elasticity and damping. In order to feel natural on a touch device they need to run at 60 FPS.
+### Alternatives
 
-### Why is this challenging?
+- `PanResponder` is included with `react-native` but implemented in JavaScript so you may notice some lag.
+- [kmagiera/react-native-gesture-handler](https://github.com/kmagiera/react-native-gesture-handler) is natively implemented but has many open issues on Android. I do not know much about this repository.
 
-The async nature of the React Native bridge incurs an inherent performance penalty. This traditionally prevents JavaScript code from running at high framerates. One of the most noticeable challenges is animations in JavaScript, which aren't guaranteed to run at 60 FPS.
-
-Modern animation libraries for React Native, like [Animated](https://facebook.github.io/react-native/docs/animated.html), tackle this challenge with a declarative approach. In order to minimize passes over the bridge, animations are only declared in JavaScript but executed by a native driver on the other side - in 60 FPS.
-
-Fluid user interactions take this a step further than animations. Interactions require UI to continuously react to the user's gestures. This library is designed to support complex physical interactions with ease, using a full-fledged physics engine to drive the interaction on the native side.
-
-### Why is it named interactable?
-
-First off, we are aware that *interactable* isn't a real word. The correct form is *interactive* but this has connotation that isn't necessarily related to physical interactions. Similar to `Animated.View`, we wanted to have `Interactable.View` - meaning a view you can interact with. And hey, [Unity](https://docs.unity3d.com/ScriptReference/UI.Selectable-interactable.html) did it too.
-
-<br>
-
-## Installation
+### Installation
 
 **Requires RN 0.40 and above.**
 
@@ -70,9 +50,7 @@ node_modules/react-native-interactable/ios/Interactable.xcodeproj
 pod 'Interactable', :path => '../node_modules/react-native-interactable'
 ```
 
-<br>
-
-## Example
+### Example
 
 To see the library in action you have several options:
 
@@ -98,14 +76,14 @@ To run the example, clone the repo and run from the root folder:<br>
 <br><br>
 To run the demo app, clone the repo and run from the root folder:
 ```
-  cd real-life-example
-  npm install
+  cd playground
+  yarn
   react-native run-ios
 ```
 
 <br>
 
-## Usage
+### Usage
 
 The core of this library is the `Interactable.View` component, used to wrap views you want to interact with:
 

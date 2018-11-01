@@ -20,7 +20,8 @@
   "scripts": {
     "start": "node ./node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "run-android": "cd playground/android && ./gradlew installDebug"
+    "run-android": "rn run-android --root playground",
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file playground/index.js --bundle-output playground/android/app/src/main/assets/index.android.bundle --assets-dest playground/android/app/src/main/res"
   },
   "dependencies": {},
   "peerDependencies": {

@@ -282,6 +282,19 @@ Takes a single argument, which is a params object containing:
  Takes a single argument, which is a params object containing:
   * `index` - The index of the snap point in the `snapPoints` array. Optional.
 
+##### `snapToPoint(snapPoint)` - used to imperatively cause the view to snap to a given snapPoint. Note that unlike normal snap points that can work along lines, #snapToPoint requires both x and y.
+
+```jsx
+instance.snapToPoint({x: 0, y:0});
+```
+
+Takes a single argument, which is a snapPoint object containing:
+* `x` - The horizontal position (relative to the center). Defaults to 0.
+* `y` - The vertical position (relative to the center). Defaults to 0.
+* `damping` - Amount of damping on the spring connected to this point. Default is `0.7`.
+* `tension` - Tension of the spring connected to this point. Default is `300`.
+* `id` - An optional string name for the point to identify it in the `onSnap` event.
+
 ##### `changePosition(params)` - used to imperatively set the view's position
 
 ```jsx

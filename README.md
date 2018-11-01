@@ -60,7 +60,7 @@ To see the library in action you have several options:
 <br><br>
 To run the example, clone the repo and run from the root folder:<br>
 ```
-  cd real-life-example
+  cd playground
   yarn
   react-native run-ios
 ```

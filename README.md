@@ -4,16 +4,10 @@
 <img src="http://i.imgur.com/dWFYZBG.gif" width=200 />
 
 # Interactable
-> react-native-interactable
 
-<br>
+Previously `wix/react-native-interactable`
 
-
-### LOOKING FOR A MAINTAINER
-
-We love this project, but currently we don’t have enough time to work on it. So we are looking for a maintainer. If you have enough time and knowledge and want to become one - please let us know (levv@wix.com, sergeyi@wix.com)
-
-<br>
+Consider [kmagiera/react-native-gesture-handler](https://github.com/kmagiera/react-native-gesture-handler)
 
 ### Description
 
@@ -50,10 +44,10 @@ First off, we are aware that *interactable* isn't a real word. The correct form 
 
 **Requires RN 0.40 and above.**
 
-* Install the package from npm
+* Install the package from github
 
 ```
-npm install react-native-interactable --save
+yarn add github:woodpav/react-native-interactable
 ```
 
 * Link the native library to your project

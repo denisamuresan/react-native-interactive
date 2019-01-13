@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
-import Interactable from 'react-native-interactable';
+import Interactable from 'react-native-interactive';
 
 export default class ChangePosition extends Component {
   constructor(props) {

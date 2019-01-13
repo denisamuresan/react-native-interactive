@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Animated } from 'react-native';
-import Interactable from 'react-native-interactable';
+import Interactable from 'react-native-interactive';
 
 export default class IconDrawer extends Component {
   constructor(props) {

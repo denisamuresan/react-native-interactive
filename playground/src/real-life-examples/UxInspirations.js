@@ -13,7 +13,7 @@ export default class UxInspirations extends Component {
     return (
       <WebView
         style={styles.container}
-        source={{uri: 'https://github.com/wix/react-native-interactable/blob/master/UX-INSPIRATIONS.md'}}
+        source={{uri: 'https://github.com/wix/react-native-interactive/blob/master/UX-INSPIRATIONS.md'}}
         renderLoading={this.renderLoading}
         startInLoadingState={true}
         injectedJavaScript={injectedJs}

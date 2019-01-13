@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Animated, ScrollView, Dimensions } from 'react-native';
-import Interactable from 'react-native-interactable';
+import Interactable from 'react-native-interactive';
 
 const Screen = {
   height: Dimensions.get('window').height - 75

@@ -10,23 +10,24 @@ import {
 } from 'react-native';
 
 // Basic Examples
+import AlertAreas from './examples/AlertAreas';
+import ChangePosition from './examples/ChangePosition';
 import ChatHeads from './examples/ChatHeads';
-import SwipeableCard from './examples/SwipeableCard';
-import IconDrawer from './examples/IconDrawer';
 import CollapsingHeader from './examples/CollapsingHeader';
-import MoreDrawers from './examples/MoreDrawers';
-import MoreChatHeads from './examples/MoreChatHeads';
-import HandleTouches from './examples/HandleTouches';
-import TouchesInside from './examples/TouchesInside';
-import TouchesInsideStatic from './examples/TouchesInsideStatic';
+import CollapsingHeaderWithScroll from './examples/CollapsingHeaderWithScroll';
 import HandleRelayout from './examples/HandleRelayout';
+import HandleTouches from './examples/HandleTouches';
+import IconDrawer from './examples/IconDrawer';
+import MoreChatHeads from './examples/MoreChatHeads';
+import MoreDrawers from './examples/MoreDrawers';
 import SideMenu from './examples/SideMenu';
 import SnapTo from './examples/SnapTo';
 import SnapToLine from './examples/SnapToLine';
 import SnapToPoint from './examples/SnapToPoint';
-import ChangePosition from './examples/ChangePosition';
-import AlertAreas from './examples/AlertAreas';
-import CollapsingHeaderWithScroll from './examples/CollapsingHeaderWithScroll';
+import SwipeableCard from './examples/SwipeableCard';
+import TallContainer from './examples/TallContainer';
+import TouchesInside from './examples/TouchesInside';
+import TouchesInsideStatic from './examples/TouchesInsideStatic';
 
 // Real life Examples
 import Documentation from './real-life-examples/Documentation';
@@ -95,6 +96,9 @@ export default class example extends Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, HandleTouches)}>
           <Text style={styles.button}>Handle Touches</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.onExamplePress.bind(this, TallContainer)}>
+          <Text style={styles.button}>Tall Container</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onExamplePress.bind(this, TouchesInside)}>
           <Text style={styles.button}>Touches Inside (interactive)</Text>

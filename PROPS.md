@@ -1,6 +1,6 @@
 # Props Reference
 
-## `Interactable.View` Props
+## `Interactive.View` Props
 
 #### `snapPoints` (array of points)
 
@@ -16,7 +16,7 @@ A list of points the view will snap to after being dragged by the user. To imple
 * `tension` - Tension of the spring connected to this point. Default is `300`.
 * `id` - An optional string name for the point to identify it in the `onSnap` event.
 
-Examples for [chat heads](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/ChatHeads.js#L10), [drawer](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L62) and [swipeable card](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/SwipeableCard.js#L25).
+Examples for [chat heads](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/ChatHeads.js#L10), [drawer](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L62) and [swipeable card](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/SwipeableCard.js#L25).
 
 #### `springPoints` (array of points)
 
@@ -140,7 +140,7 @@ Optional, an object providing limits to movement relative to the view's center (
 onSnap={this.onDrawerSnap}
 ```
 
-Optional, a function called whenever the view finishes snapping to a `snapPoints` point (after being dragged). Example for [drawer](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L63). When the function is called, an event object is passed as argument, containing the following properties:
+Optional, a function called whenever the view finishes snapping to a `snapPoints` point (after being dragged). Example for [drawer](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L63). When the function is called, an event object is passed as argument, containing the following properties:
 
 * `index` - The zero-based index of the point in the `snapPoints` array.
 * `id` - The string `id` of the point in the `snapPoints` array (assuming it was provided).
@@ -248,4 +248,4 @@ Whether integration with [Animated](https://facebook.github.io/react-native/docs
 initialPosition={{x: -140, y: -280}}
 ```
 
-Optional, used to initialize the view's position to a position different than it's original center. This is mostly useful when you want to provide `snapPoints` points relative to the center calculated by React Native layout, but want the view itself to start from a different position. See [chat heads](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/ChatHeads.js#L22) example.
+Optional, used to initialize the view's position to a position different than it's original center. This is mostly useful when you want to provide `snapPoints` points relative to the center calculated by React Native layout, but want the view itself to start from a different position. See [chat heads](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/ChatHeads.js#L22) example.

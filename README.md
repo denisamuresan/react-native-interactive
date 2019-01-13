@@ -3,7 +3,7 @@
 <img src="http://i.imgur.com/J5l2Qvq.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="http://i.imgur.com/dWFYZBG.gif" width=200 />
 
-# <Interactable.View />
+# <Interactive.View />
 
 * [Goal](#goal)
 * [Alternatives](#alternatives)
@@ -27,19 +27,19 @@ The goal of this repository is to provide `react-native` developers with a singl
 * Install the package from github
 
 ```
-yarn add github:woodpav/react-native-interactable
+yarn add react-native-interactive
 ```
 
 * Link the native library to your project
 
 ```
-react-native link react-native-interactable
+react-native link react-native-interactive
 ```
 
 Note: instead of linking automatically you can also link manually according to these [instructions](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#manual-linking)
 
 ```
-node_modules/react-native-interactable/ios/Interactable.xcodeproj
+node_modules/react-native-interactive/ios/Interactable.xcodeproj
 ```
 
 **Manually link via Cocoa Pods (iOS)**
@@ -47,7 +47,7 @@ node_modules/react-native-interactable/ios/Interactable.xcodeproj
 * Add the following to your `Podfile` and run `pod update`:
 
 ```
-pod 'Interactable', :path => '../node_modules/react-native-interactable'
+pod 'Interactive', :path => '../node_modules/react-native-interactive'
 ```
 
 ### Example
@@ -71,7 +71,7 @@ To run the example, clone the repo and run from the root folder:<br>
 <br><br><img src="http://i.imgur.com/VpSsavS.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/O7ulJa1.gif" width=200 />&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://i.imgur.com/2mrUNIM.gif" width=200 />
 
 * **Build and run the demo app on your computer**
-<br><br>The [demo app](real-life-example) contains more complex demonstrations than the [example](example) project. They're harder to learn from, but they're cool to watch. More info about the [UX inspirations](https://github.com/wix/react-native-interactable/blob/master/UX-INSPIRATIONS.md) for the demo app.
+<br><br>The [demo app](real-life-example) contains more complex demonstrations than the [example](example) project. They're harder to learn from, but they're cool to watch. More info about the [UX inspirations](https://github.com/woodpav/react-native-interactive/blob/master/UX-INSPIRATIONS.md) for the demo app.
 <br><br>*Note: It's recommended to experience it on a [real device](http://facebook.github.io/react-native/docs/running-on-device.html) and not on a simulator. The simulator has poor performance so the framerate isn't like the real thing.*
 <br><br>
 To run the demo app, clone the repo and run from the root folder:
@@ -85,147 +85,147 @@ To run the demo app, clone the repo and run from the root folder:
 
 ### Usage
 
-The core of this library is the `Interactable.View` component, used to wrap views you want to interact with:
+The core of this library is the `Interactive.View` component, used to wrap views you want to interact with:
 
 ```jsx
-import Interactable from 'react-native-interactable';
+import Interactive from 'react-native-interactive';
 
-<Interactable.View
+<Interactive.View
   horizontalOnly={true}
   snapPoints={[{x: 0}, {x: -200}]}
   onSnap={this.onDrawerSnap}>
 
   // the view that you wrap here will now support interactions
 
-</Interactable.View>
+</Interactive.View>
 ```
 <br>
 
-### `Interactable.View` Props
+### `Interactive.View` Props
 
-[Click here for the full reference for all props](https://github.com/wix/react-native-interactable/blob/master/PROPS.md)
+[Click here for the full reference for all props](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md)
 
-* [`snapPoints`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#snappoints-array-of-points) - a list of points the view will snap to after being dragged by the user
+* [`snapPoints`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#snappoints-array-of-points) - a list of points the view will snap to after being dragged by the user
 
 ```jsx
 snapPoints={[{x: 0}, {x: -200}]}
 ```
 
-* [`springPoints`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#springpoints-array-of-points) - connect the view's center to a group of constant springs
+* [`springPoints`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#springpoints-array-of-points) - connect the view's center to a group of constant springs
 
 ```jsx
 springPoints={[{x: 0, tension: 6000, damping: 0.5, influenceArea: {left: 0}}]}
 ```
 
-* [`gravityPoints`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#gravitypoints-array-of-points) - attract/repel the view's center with a group of constant gravity wells
+* [`gravityPoints`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#gravitypoints-array-of-points) - attract/repel the view's center with a group of constant gravity wells
 
 ```jsx
 gravityPoints={[{x: 0, y: 0, strength: 8000, falloff: 40, damping: 0.5}]}
 ```
 
-* [`frictionAreas`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#frictionareas-array-of-areas) - add friction to the view's movement with a group of friction regions
+* [`frictionAreas`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#frictionareas-array-of-areas) - add friction to the view's movement with a group of friction regions
 
 ```jsx
 frictionAreas={[{damping: 0.5, influenceArea: {top: 0}}]}
 ```
 
-* [`alertAreas`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#alertareas-array-of-areas) - send alert event when the view's center enters/leaves any region within the group
+* [`alertAreas`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#alertareas-array-of-areas) - send alert event when the view's center enters/leaves any region within the group
 
 ```jsx
 alertAreas={[{id: 'myArea', influenceArea: {top: 0}}]}
 ```
 
-* [`horizontalOnly`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#horizontalonly-boolean) - whether the view should be locked to horizontal movement only
+* [`horizontalOnly`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#horizontalonly-boolean) - whether the view should be locked to horizontal movement only
 
 ```jsx
 horizontalOnly={true}
 ```
 
-* [`startOnFront`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#startOnFront-boolean) - [ANDROID ONLY] whether the view should call `bringToFront`
+* [`startOnFront`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#startOnFront-boolean) - [ANDROID ONLY] whether the view should call `bringToFront`
 
 ```jsx
 startOnFront
 ```
 
-* [`verticalOnly`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#verticalonly-boolean) - whether the view should be locked to vertical movement only
+* [`verticalOnly`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#verticalonly-boolean) - whether the view should be locked to vertical movement only
 
 ```jsx
 verticalOnly={true}
 ```
 
-* [`boundaries`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#boundaries-object) - limits to movement relative to the view's center (after initial layout)
+* [`boundaries`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#boundaries-object) - limits to movement relative to the view's center (after initial layout)
 
 ```jsx
 boundaries={{left: -100, right: 100, bounce: 0.5}}
 ```
 
-* [`onSnap`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onsnap-function) - a function called whenever the view finishes snapping to a `snapPoints` point (after dragging)
+* [`onSnap`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#onsnap-function) - a function called whenever the view finishes snapping to a `snapPoints` point (after dragging)
 
 ```jsx
 onSnap={this.onDrawerSnap}
 ```
 
-* [`onSnapStart`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onsnapstart-function) - a function called whenever the view starts snapping to a `snapPoints` point (after dragging)
+* [`onSnapStart`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#onsnapstart-function) - a function called whenever the view starts snapping to a `snapPoints` point (after dragging)
 
 ```jsx
 onSnapStart={this.onDrawerSnapStart}
 ```
 
-* [`onStop`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onstop-function) - a function called whenever the interaction stops (views freeze momentarily)
+* [`onStop`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#onstop-function) - a function called whenever the interaction stops (views freeze momentarily)
 
 ```jsx
 onStop={this.onStopInteraction}
 ```
 
-* [`onDrag`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#ondrag-function) - a function called whenever the user starts or stops dragging the view
+* [`onDrag`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#ondrag-function) - a function called whenever the user starts or stops dragging the view
 
 ```jsx
 onDrag={this.onDragEvent}
 ```
 
-* [`onAlert`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onalert-function) - a function called whenever the view's center enters/leaves an alert area
+* [`onAlert`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#onalert-function) - a function called whenever the view's center enters/leaves an alert area
 
 ```jsx
 onAlert={this.onAlertEvent}
 ```
 
-* [`dragEnabled`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#dragenabled-boolean) - whether the user can drag the view or not
+* [`dragEnabled`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#dragenabled-boolean) - whether the user can drag the view or not
 
 ```jsx
 dragEnabled={true}
 ```
 
-* [`dragWithSpring`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#dragwithspring-object) - specify to make dragging behavior of the view occur using a spring
+* [`dragWithSpring`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#dragwithspring-object) - specify to make dragging behavior of the view occur using a spring
 
 ```jsx
 dragWithSpring={{tension: 2000, damping: 0.5}}
 ```
 
-* [`dragToss`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#dragtoss-number) - time in seconds the view is allowed to be tossed before snapping to a point
+* [`dragToss`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#dragtoss-number) - time in seconds the view is allowed to be tossed before snapping to a point
 
 ```jsx
 dragToss={0.1}
 ```
 
-* [`animatedValueX`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#animatedvaluex-animatedvalue) - [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) that will contain the delta from the center as the view moves (x axis)
+* [`animatedValueX`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#animatedvaluex-animatedvalue) - [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) that will contain the delta from the center as the view moves (x axis)
 
 ```jsx
 animatedValueX={this._deltaX}
 ```
 
-* [`animatedValueY`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#animatedvaluey-animatedvalue) - [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) that will contain the delta from the center as the view moves (y axis)
+* [`animatedValueY`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#animatedvaluey-animatedvalue) - [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) that will contain the delta from the center as the view moves (y axis)
 
 ```jsx
 animatedValueY={this._deltaY}
 ```
 
-* [`animatedNativeDriver`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#animatednativedriver-boolean) - whether integration with [Animated](https://facebook.github.io/react-native/docs/animated.html) should use native driver
+* [`animatedNativeDriver`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#animatednativedriver-boolean) - whether integration with [Animated](https://facebook.github.io/react-native/docs/animated.html) should use native driver
 
 ```jsx
 animatedNativeDriver={false}
 ```
 
-* [`initialPosition`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#initialposition-point) - used to initialize the view's position to a position different than it's original center
+* [`initialPosition`](https://github.com/woodpav/react-native-interactive/blob/master/PROPS.md#initialposition-point) - used to initialize the view's position to a position different than it's original center
 
 ```jsx
 initialPosition={{x: -140, y: -280}}
@@ -233,7 +233,7 @@ initialPosition={{x: -140, y: -280}}
 
 <br>
 
-### `Interactable.View` Methods
+### `Interactive.View` Methods
 
 ##### `setVelocity(params)` - used to imperatively set the view's velocity in order to move it around
 
@@ -285,16 +285,16 @@ Takes a single argument, which is a params object containing:
 instance.bringToFront();
 ```
 
-## Animating other views according to `Interactable.View` position
+## Animating other views according to `Interactive.View` position
 
-This library is integrated with the [Animated](https://facebook.github.io/react-native/docs/animated.html) library in order to support performant animations of other views according to the movement of the `Interactable.View`.
+This library is integrated with the [Animated](https://facebook.github.io/react-native/docs/animated.html) library in order to support performant animations of other views according to the movement of the `Interactive.View`.
 
 Consider the following use-cases:
 
-* Buttons that appear using a fade & scale animation under a drawer as it's being dragged ([example](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L44))
-* Image in a collapsible header that scales as it's snapped between states ([example](https://github.com/wix/react-native-interactable/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/CollapsingHeader.js#L15))
+* Buttons that appear using a fade & scale animation under a drawer as it's being dragged ([example](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/IconDrawer.js#L44))
+* Image in a collapsible header that scales as it's snapped between states ([example](https://github.com/woodpav/react-native-interactive/blob/b72eff0649b48dd50548593e5ecfe4c42b026a02/example/src/CollapsingHeader.js#L15))
 
-In these use-cases, we have views different from the one the user is interacting with, that animate according to the interactive view's position. Since [Animated](https://facebook.github.io/react-native/docs/animated.html) library uses [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) to animate view properties, we support setting the value of an `Animated.Value` instance according to position of the interactable view. The `Animated.Value` will contain the delta between the `Interactable.View` original center and new center. This can be done separately on the X axis and Y axis.
+In these use-cases, we have views different from the one the user is interacting with, that animate according to the interactive view's position. Since [Animated](https://facebook.github.io/react-native/docs/animated.html) library uses [`Animated.Value`](https://facebook.github.io/react-native/docs/animated.html#animatedvalue) to animate view properties, we support setting the value of an `Animated.Value` instance according to position of the interactable view. The `Animated.Value` will contain the delta between the `Interactive.View` original center and new center. This can be done separately on the X axis and Y axis.
 
 After setting this up, use [Animated](https://facebook.github.io/react-native/docs/animated.html) to declaratively define [interpolations](https://facebook.github.io/react-native/docs/animated.html#interpolate) of the `Animated.Value` to various animatable view properties like opacity, scale, rotation, translateX and translateY:
 
@@ -312,13 +312,13 @@ this._deltaY = new Animated.Value(0);
   ...
 </Animated.View>
 
-<Interactable.View
+<Interactive.View
   verticalOnly={true}
   snapPoints={[{y: 0}, {y: -150}]}
   animatedValueY={this._deltaY}
 >
   ...
-</Interactable.View>
+</Interactive.View>
 ```
 
 <br>
